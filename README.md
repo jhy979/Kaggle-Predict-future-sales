@@ -114,12 +114,13 @@ ___
 - 수 십번의 parameter tuning 결과, 실험적으로 판단했을 때 가장 영향력 있는 parameter는 num_leaves 였다. num_leaves는 전체 tree의 leave 수이다. 보통 num_leaves = 2^(max_depth)는 depth-wise tree와 같은 수의 leaves를 가지게 하여, 이보다 작게 설정해야 오버피팅을 줄일 수 있다고 알려져있다. 이번 프로젝트에서는 이런 지식을 바탕으로 num_leaves를 조절해주었다.
 ### 2-3) 연구결과
 ___
-
+👇👇kaggle predict future sales에 참여한 팀들 중에서 2021.6.13 기준 상위 8.3% 해당하는 1052등를 기록하였다. <br>
 ![image](https://user-images.githubusercontent.com/32920566/122233361-f5708200-cef6-11eb-9397-c7b0eef1debe.png)
 <br><br>
-kaggle predict future sales에 참여한 팀들 중에서 2021.6.13 기준 상위 8.3% 해당하는 1052등를 기록하였다. <br>
 
-추가) 2021.6.15. 화요일 기준 1067 / 12638 상위 8.4%
+추가) 2021.6.15. 기준 1067 / 12638 상위 8.4% <br><br>
+추가) 👇👇 2021.6.18 기준 992 / 12698 상위 7.81%을 기록하였다.<br>
+![image](https://user-images.githubusercontent.com/32920566/122662505-74530c80-d1ce-11eb-90e0-ce692d5e2ca3.png)<br>
 
 ### 3. 결론
 ___
@@ -130,9 +131,9 @@ ___
 
 ### 3-2) feature 중요도 파악
 ___
-사용한 feature사이에서의 중요도 순위<br>
-![image](https://user-images.githubusercontent.com/32920566/122233379-fa353600-cef6-11eb-9e76-2a704b4a1502.png)
+ 👇👇사용한 feature사이에서의 중요도 순위<br>
+![image](https://user-images.githubusercontent.com/32920566/122662502-6e5d2b80-d1ce-11eb-8505-8b8618234f5e.png)
 <br><br>
 
 예상했던 대로 feature 중에서도 바로 직전 달의 데이터들이 매우 중요했다. item_cnt_month_lag1,  item_month_mean_lag_1, shop_category_month_lag_1이 feature 중요도 상위를 차지하는 것을 알 수 있었다.<br>
-또한, kaggle에서 제공하지 않은 외부 변수 holidays_in_month를 추가했는데 나름 괜찮게 사용되어 실제로 휴일이 판매량에 영향을 미치는 것이 사실임을 확인할 수 있었다. 이로 미루어 보아 물가를 반영할 수 있거나 cpi 지수를 추가 feature로 도입한다면 나름 괜찮은 성능을 가질 수 있을 것이라고 생각된다.<br><br>
+또한, kaggle에서 제공하지 않은 외부 변수 holidays_in_month를 추가했는데 나름 괜찮게 사용되어 실제로 휴일이 판매량에 영향을 미치는 것이 사실임을 확인할 수 있었다. 하지만 cpi 지수같은 경우는 추가했지만 큰 이득을 볼 수는 없었다. 소비 경제를 대표할 수 있는 지수를 추가적으로 도입하는 것이 더 좋을 것으로 예상된다.<br><br>
